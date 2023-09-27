@@ -26,7 +26,14 @@ stages {
              }
          }
 
-    
+    stage('Docker Image Push') {
+       steps {
+       withCredentials([usernamePassword(credentialsId: 'dockerpass', passwordVariable: 'dockerpass', usernameVariable: 'dockerhub')]) {
+         sh 'docker login -u ${dockerhub} -p ${dockerpass}'
+       }
+         sh 'docker push gopala230390/insurance:3.0'
+   }    
+     }   
     
 }
 }
