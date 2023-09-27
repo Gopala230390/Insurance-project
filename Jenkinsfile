@@ -34,6 +34,14 @@ stages {
          sh 'docker push gopala230390/insurance:3.0'
    }    
      }   
+  
+  stage('Application Deploy-container') {
+          steps {
+            
+            ansiblePlaybook credentialsId: 'ubuntu-ssh', disableHostKeyChecking: true, installation: 'ansible', playbook: 'deploy.yml'
+                }
+          }
+
     
 }
 }
