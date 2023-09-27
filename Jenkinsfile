@@ -22,7 +22,7 @@ stages {
 
   stage('Create Docker image of App') {
        steps {
-         sh 'docker build -t cbabu85/insure-me-app:3.0 .'
+         sh 'docker build -t gopala230390/insurance:3.0 .'
              }
          }
 
